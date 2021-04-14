@@ -1,0 +1,118 @@
+version: "2.0"
+stories:
+- story: interactive story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: check_exists
+  - action: action_check_existence
+- story: sad path form
+  steps:
+  - intent: unhappy
+  - action: utter_transfer_agent
+  - intent: confirm
+  - action: utter_transfer
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+- story: order form checkout
+  steps:
+  - action: utter_slot_values
+  - intent: confirm
+  - action: utter_continue
+  - intent: deny
+  - action: action_calculate_bill
+  - action: utter_bill
+  - intent: confirm
+  - action: checkout_form
+  - active_loop: checkout_form
+- story: order form continue
+  steps:
+  - action: utter_slot_values
+  - intent: confirm
+  - action: utter_continue
+  - intent: confirm
+  - action: utter_assist
+- story: checkout form
+  steps:
+  - action: utter_delivery_confirmation
+  - intent: confirm
+  - action: utter_delivery
+  - action: action_restart_order
+  - intent: thankyou
+  - action: utter_happy
+- story: start order form
+  steps:
+  - intent: order
+  - action: order_form
+  - active_loop: order_form
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: check_exists
+    entities:
+    - food_name: eforiro
+  - action: action_check_existence
+  - intent: menu
+  - action: action_get_menu
+  - intent: order
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: main_dish
+  - intent: greet
+  - action: utter_greet
+- story: restart_while_ordering
+  steps:
+  - intent: order
+  - action: order_form
+  - active_loop: order_form
+  - intent: start_over
+  - action: utter_ask_restart
+  - intent: confirm
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_restart_order
+  - action: utter_assist
+- story: restart_while_ordering + deny
+  steps:
+  - intent: order
+  - action: order_form
+  - active_loop: order_form
+  - intent: start_over
+  - action: utter_ask_restart
+  - intent: deny
+  - action: order_form
+  - active_loop: null
+  - action: utter_slot_values
+  - action: action_update_order
+- story: out_of_scope_questions
+  steps:
+  - intent: out_of_scope
+  - action: utter_oos
+- story: cancel_while_ordering
+  steps:
+  - intent: order
+  - action: order_form
+  - active_loop: order_form
+  - intent: cancel
+  - action: utter_ask_cancel
+  - intent: confirm
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_cancel_order
+  - action: utter_assist
+- story: cancel_while_ordering + deny
+  steps:
+  - intent: order
+  - action: order_form
+  - active_loop: order_form
+  - intent: cancel
+  - action: utter_ask_cancel
+  - intent: deny
+  - action: order_form
+  - active_loop: null
+  - action: utter_slot_values
+  - action: action_update_order
