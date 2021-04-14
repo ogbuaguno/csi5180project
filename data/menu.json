@@ -1,0 +1,120 @@
+{
+    "main_dish" : [
+        {
+            "id":1,
+            "name":"White Rice",
+            "price": 10
+        },
+        {
+            "id":2,
+            "name": "Jollof Rice",
+            "price": 10
+        },
+        {
+            "id":3,
+            "name": "Fried Rice",
+            "price": 10
+        },
+        {
+            "id":4,
+            "name": "Eba",
+            "price": 5
+        },
+        {
+            "id":5,
+            "name": "Poundo Yam",
+            "price": 5
+        },
+        {
+            "id":6,
+            "name": "Amala",
+            "price": 5
+        }
+    ],
+    "soups_and_stews":[
+        {
+            "id":1,
+            "name": "Red Stew",
+            "price": 0
+        },
+        {
+            "id":2,
+            "name": "Ofada Stew",
+            "price": 5
+        },
+        {
+            "id":3,
+            "name": "Ofe Akwu",
+            "price": 5
+        },
+        {
+            "id":4,
+            "name": "Okro Soup",
+            "price": 10
+        },
+        {
+            "id":5,
+            "name": "Egusi Soup",
+            "price": 10
+        },
+        {
+            "id":6,
+            "name": "Onugbu Soup",
+            "price": 15
+        },
+        {
+            "id":7,
+            "name": "Ewedu ati Gbegiri",
+            "price": 10
+        }
+    ],
+    "protein": [
+        {
+            "id":1,
+            "name": "Beef",
+            "price": 10
+        },
+        {
+            "id":2,
+            "name": "Fish",
+            "price": 15
+        },
+        {
+            "id":3,
+            "name": "Gizzard",
+            "price": 15
+        },
+        {
+            "id":4,
+            "name": "Chicken",
+            "price": 10
+        },
+        {
+            "id":5,
+            "name": "Assorted",
+            "price": 10
+        },
+        {
+            "id":5,
+            "name": "Goat Meat",
+            "price": 20
+        }
+    ],
+    "side_dish": [
+        {
+            "id":1,
+            "name": "Plantains",
+            "price": 5
+        },
+        {
+            "id":2,
+            "name": "Moin Moin",
+            "price": 7
+        },
+        {
+            "id":3,
+            "name": "Coleslaw",
+            "price": 3
+        }
+    ]
+}

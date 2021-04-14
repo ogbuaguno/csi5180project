@@ -1,0 +1,177 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- menu:
+    use_entities: true
+- order:
+    use_entities: true
+- start_over:
+    use_entities: true
+- cancel:
+    use_entities: true
+- check_exists:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- confirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- thankyou:
+    use_entities: true
+- unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- out_of_scope:
+    use_entities: true
+entities:
+- food_name
+- number
+slots:
+  orders:
+    type: rasa.shared.core.slots.ListSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  main_dish:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  soups_and_stew:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  protein:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  side_dish:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  address:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  pick_up:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  total_amount:
+    type: rasa.shared.core.slots.FloatSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+    max_value: 1.0
+    min_value: 0.0
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey! How can I help you today?
+  - text: Hi there! How may I assist you?
+  utter_menu:
+  - text: Today's mouthwatering menu
+  utter_ask_main_dish:
+  - text: What main dish would you like to order?
+  utter_wrong_main_dish:
+  - text: Main dish name is not on the menu. Please try again.
+  utter_ask_soups_and_stew:
+  - text: What soup or stew would you like to order?
+  utter_wrong_soups:
+  - text: Soup or stew name is not on the menu. Please try again.
+  utter_ask_protein:
+  - text: What protein would you like to order?
+  utter_wrong_protein:
+  - text: Protein name is not on the menu. Please try again.
+  utter_ask_side_dish:
+  - text: What side dish would you like?
+  utter_wrong_side:
+  - text: Side dish name is not on the menu. Please try again.
+  utter_ask_rephrase:
+  - text: Sorry, I'm not sure I understand. Could you rephrase it?
+  - text: Could you please rephrase your message? I didn't quite get that.
+  utter_ask_restart:
+  - text: Do you want to start over?
+  utter_ask_cancel:
+  - text: Do you want to cancel the order?
+  utter_slot_values:
+  - text: |-
+      I am going to place an order with the following items:
+       - Main Dish: {main_dish}
+       - Soups & Stew: {soups_and_stew}
+       - Protein: {protein}
+       - Side Dish: {side_dish}
+      Can you confirm that this is correct?
+  utter_order:
+  - text: |-
+      Thanks. 
+      Your order is : {orders}
+  utter_bill:
+  - text: |-
+      Your bill is: ${total_amount}
+      Are you ready to checkout?
+  utter_ask_address:
+  - text: What is your address?
+  utter_delivery_confirmation:
+  - text: Can you confirm that your order should be delivered to {address}
+  utter_delivery:
+  - text: |-
+      Thank you for your order. Your delivery is on its way to {address}.
+      Please have your card ready to pay ${total_amount}
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great!
+  utter_assist:
+  - text: How can I help?
+  utter_goodbye:
+  - text: Thanks. Hope you come back soon!
+  utter_continue:
+  - text: Would you like to continue
+  utter_transfer_agent:
+  - text: Would you like me to transfer you to an agent?
+  utter_transfer:
+  - text: Now transferring you to an agent...
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_oos:
+  - text: I'm sorry, I can only assist with ordering from the menu
+actions:
+- action_get_menu
+- action_check_existence
+- action_calculate_bill
+- action_restart_order
+- action_cancel_order
+- action_update_order
+- validate_order_form
+forms:
+  order_form:
+    main_dish:
+    - type: from_text
+    protein:
+    - type: from_text
+    side_dish:
+    - type: from_text
+    soups_and_stew:
+    - type: from_text
+  checkout_form:
+    address:
+    - type: from_text
+e2e_actions: []

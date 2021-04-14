@@ -1,0 +1,60 @@
+version: "2.0"
+rules:
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+- rule: Transfer unhappy user
+  steps:
+  - intent: unhappy
+  - action: utter_transfer_agent
+- rule: Ask before restarting
+  steps:
+  - intent: start_over
+  - action: utter_ask_restart
+  - intent: confirm
+  - action: action_deactivate_loop
+  - active_loop: null
+- rule: Ask before cancelling
+  steps:
+  - intent: cancel
+  - action: utter_ask_cancel
+  - intent: confirm
+  - action: action_deactivate_loop
+  - active_loop: null
+- rule: Give User Menu
+  steps:
+  - intent: menu
+  - action: action_get_menu
+- rule: Activate order form
+  steps:
+  - intent: order
+  - action: order_form
+  - active_loop: order_form
+- rule: Submit order form
+  condition:
+  - active_loop: order_form
+  steps:
+  - action: order_form
+  - active_loop: null
+  - action: utter_slot_values
+  - action: action_update_order
+- rule: Activate Checkout form
+  steps:
+  - action: checkout_form
+  - active_loop: checkout_form
+- rule: Sumbit checkout form
+  condition:
+  - active_loop: checkout_form
+  steps:
+  - action: checkout_form
+  - active_loop: null
+  - action: utter_delivery_confirmation
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot

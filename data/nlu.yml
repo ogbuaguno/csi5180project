@@ -1,0 +1,148 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - hi there
+    - hey there
+    - yello
+    - how far
+    - good morning
+    - good evening
+    - good afternoon
+    - chow
+    - white rice
+- intent: menu
+  examples: |
+    - see menu
+    - what's available
+    - price of meal
+    - available
+    - what do you have
+    - what's on the menu
+    - what's on the menu?
+    - can I get the menu
+    - can I see the menu
+- intent: order
+  examples: |
+    - like to order
+    - want to buy
+    - place an order
+    - i'm ready to order
+    - I'd like to order now
+    - ready
+    - add order
+    - add item
+- intent: cancel
+  examples: |
+    - don't want anymore
+    - cancel order
+    - no longer ordering
+    - cancel
+    - remove order
+- intent: start_over
+  examples: |
+    - i want something else
+    - start over
+    - made mistakes
+    - made a mistake
+    - restart
+    - start again
+    - start all over again
+    - begin afresh
+- intent: check_exists
+  examples: |
+    - is [agidi](food_name) sold here
+    - do you sell [edikaiko](food_name)
+    - to buy [ukwa](food_name)
+    - how much is [onugbu](food_name)
+    - do you have [eforiro](food_name) available
+    - do you sell [eforiro](food_name)?
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - good by
+    - see you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+- intent: confirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: thankyou
+  examples: |
+    - um thank you good bye
+    - okay cool uh good bye thank you
+    - okay thank you good bye
+    - you rock
+    - and thats all thank you and good bye
+    - thank you and good bye
+    - sorry about my mistakes thank you good bye
+    - noise thank you good bye
+    - thank you goodbye noise
+    - okay thank you goodbye
+    - uh thank you good bye
+    - thank you goodbye
+    - thank you goodbye noise thank you goodbye
+    - breath thank you goodbye
+    - thank you
+    - okay thank you
+    - thanks goodbye
+    - ah thank you goodbye
+    - thank you noise
+    - thank you good bye
+    - breath thank you very much goodbye
+    - thanks
+    - noise thank you goodbye
+    - unintelligible thank you goodbye
+    - uh okay thank you good bye
+    - thank you bye
+    - um okay thank you good bye
+- intent: unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - don't like this
+    - messed it
+    - very bad
+    - not happy
+    - unhappy
+    - so mad
+    - very angry
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+    - Where can I go eat?
+    - Is a restaurant near me?
+    - Where is the restaurant?
